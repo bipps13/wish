@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 24px;
+      animation: float 15s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: #fff0f6;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(255, 102, 163, 0.4);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .box h1 {
+      font-size: 2rem;
+      color: #ff66a3;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 10px #fff;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(255, 102, 163, 0.2);
+      outline: none;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(145deg, #ff99cc, #ff66a3);
+      color: white;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(255, 102, 163, 0.4);
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 102, 163, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating emojis -->
+  <script>
+    const emojis = ["🎀", "💝", "💋", "🥂", "💌", "🎊", "💖", "💕", "✨", "🍫", "🎁", "🧸", "🫶🏻", "❤"];
+    for (let i = 0; i < 40; i++) {
+      const emoji = document.createElement("div");
+      emoji.className = "emoji";
+      emoji.style.left = `${Math.random() * 100}vw`;
+      emoji.style.fontSize = `${Math.random() * 20 + 20}px`;
+      emoji.style.animationDuration = `${Math.random() * 10 + 10}s`;
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      document.body.appendChild(emoji);
+    }
+  </script>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="box">
+      <h1>💖 Welcome to Your Birthday Zone 💖</h1>
+      <input type="text" id="name" placeholder="Enter your name ✨" />
+      <input type="date" id="birthdate" />
+      <button onclick="showWish()">🎉 Wishing You</button>
+      <button onclick="goToSurprise()">🎁 Surprises For You</button>
+    </div>
+  </div>
+
+  <script>
+    function showWish() {
+      const name = document.getElementById("name").value;
+      const bday = document.getElementById("birthdate").value;
+      if (name && bday) {
+        alert(`🎉 Happy Birthday, ${name}! 🎂💖\nWishing you endless joy, magic, and sparkles! ✨🧁`);
+      } else {
+        alert("Please enter both your name and birthdate 💌");
+      }
+    }
+
+    function goToSurprise() {
+      const name = document.getElementById("name").value;
+      const bday = document.getElementById("birthdate").value;
+      if (name && bday) {
+        window.location.href = "letter.html";
+      } else {
+        alert("Please fill in your name and birthdate first 💖");
+      }
+    }
+  </script>
+
+</body>
+</html>
