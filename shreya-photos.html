@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memories Gallery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+1FhGkZ0V8V1J4Rj+q5opzgw2GLPNZ63UosRXkW9ByKycYzUq8YRI7RhZAXU2S5r4lMSRfbFz9zGILCkfnFYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(270deg, #ffe6f0, #ffe0ff, #fff0f5, #ffe4e1);
+      background-size: 800% 800%;
+      animation: bgWave 20s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #a60061;
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+      z-index: 1;
+    }
+
+    .frame {
+      position: relative;
+      border: 10px solid #ffb6e1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .download-icon {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .download-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .magic-btn {
+      margin-top: 40px;
+      background: linear-gradient(45deg, #da70d6, #f8b8f0, #bb86fc);
+      background-size: 200% auto;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(187, 134, 252, 0.5);
+      transition: all 0.4s ease-in-out;
+      animation: pulse 3s infinite alternate;
+      z-index: 1;
+    }
+
+    .magic-btn:hover {
+      background-position: right center;
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+      }
+      to {
+        transform: scale(1.04);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+      }
+    }
+
+    .emoji-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Happy Birthday Preetiest 💖</h1>
+
+  <div class="gallery">
+    <div class="frame" onclick="showFull('shr2.png.jpg')">
+      <img src="shr2.png.jpg" alt="Memory 1" />
+    </div>
+    <div class="frame" onclick="showFull('shr.png')">
+      <img src="shr.png" alt="Memory 2" />
+    </div>
+    <div class="frame" onclick="showFull('shr1.png')">
+      <img src="shr1.png" alt="Memory 3" />
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="hideFull()">
+    <div class="download-icon" id="downloadIcon" onclick="event.stopPropagation(); downloadImage()">
+      <i class="fa-solid fa-download"></i>
+    </div>
+    <img id="overlayImg" src="" alt="Full View" />
+  </div>
+
+ <button class="magic-btn" onclick="location.href='shreya-memories.html'">Memories of Us 💌</button>
+
+
+  <div class="emoji-container" id="emojiContainer"></div>
+
+  <script>
+    let currentImgSrc = "";
+
+    function showFull(src) {
+      currentImgSrc = src;
+      document.getElementById("overlayImg").src = src;
+      document.getElementById("overlay").style.display = "flex";
+    }
+
+    function hideFull() {
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function downloadImage() {
+      const link = document.createElement("a");
+      link.href = currentImgSrc;
+      link.download = currentImgSrc.split("/").pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    const emojis = ["💖", "💕", "💗", "💘", "💞", "💝"];
+    const emojiContainer = document.getElementById("emojiContainer");
+
+    function createEmoji() {
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji");
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = 5 + Math.random() * 5 + "s";
+      emojiContainer.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 10000);
+    }
+
+    setInterval(createEmoji, 300);
+  </script>
+</body>
+</html>
