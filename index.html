@@ -120,58 +120,56 @@
     </div>
   </div>
 
-  <!-- Updated Multi-User Script -->
   <script>
-    const users = {
-      "shreya jibhakate": {
-        dob: "2007-07-01",
-        folder: "Shreya"
-      },
-      "sanzi rangari": {
-        dob: "2007-06-30",
-        folder: "Sanzi"
-      }
-    };
-
-    function showWish() {
-      const name = document.getElementById("name").value.trim().toLowerCase();
-      const bday = document.getElementById("birthdate").value;
-
-      if (!name || !bday) {
-        alert("Please enter both your name and birthdate 💌");
-        return;
-      }
-
-      if (users[name] && users[name].dob === bday) {
-        alert(`🎉 Happy Birthday, ${name}! 🎂💖\nWishing you endless joy, magic, and sparkles! ✨🧁`);
-      } else {
-        alert("❌ Wrong Name or Date of Birth");
-      }
+  const users = {
+    "shreya jibhakate": {
+      dob: "2007-07-01",
+      folder: "shreya"
+    },
+    "sanzi rangari": {
+      dob: "2007-06-30",
+      folder: "sanzi"
     }
-function goToSurprise() {
-  const name = document.getElementById("name").value.trim().toLowerCase();
-  const bday = document.getElementById("birthdate").value;
+  };
+ function showWish() {
+    const name = document.getElementById("name").value.trim().toLowerCase();
+    const bday = document.getElementById("birthdate").value;
 
-  if (!name || !bday) {
-    alert("Please fill in your name and birthdate first 💖");
-    return;
-  }
-
-  if (users[name] && users[name].dob === bday) {
-    localStorage.setItem("username", name); // ✅ Save username
-
-    // ✅ Go to specific letter file based on user
-    if (name === "shreya jibhakate") {
-      window.location.href = `${users[name].folder}/shreya-letter.html`;
-    } else if (name === "sanzi rangari") {
-      window.location.href = `${users[name].folder}/sanzi-letter.html`;
+    if (!name || !bday) {
+      alert("Please enter both your name and birthdate 💌");
+      return;
     }
 
-  } else {
-    alert("❌ Wrong Name or Date of Birth");
+    if (users[name] && users[name].dob === bday) {
+      alert(`🎉 Happy Birthday, ${name}! 🎂💖\nWishing you endless joy, magic, and sparkles! ✨🧁`);
+    } else {
+      alert("❌ Wrong Name or Date of Birth");
+    }
   }
-}
-  </script>
 
+  function goToSurprise() {
+    const name = document.getElementById("name").value.trim().toLowerCase();
+    const bday = document.getElementById("birthdate").value;
+
+    if (!name || !bday) {
+      alert("Please fill in your name and birthdate first 💖");
+      return;
+    }
+
+    if (users[name] && users[name].dob === bday) {
+      localStorage.setItem("username", name); // Save username
+
+      // Redirect based on user
+      if (name === "shreya jibhakate") {
+        window.location.href = `${users[name].folder}/shreya-letter.html`;
+      } else if (name === "sanzi rangari") {
+        window.location.href = `${users[name].folder}/sanzi-letter.html`;
+      }
+
+    } else {
+      alert("❌ Wrong Name or Date of Birth");
+    }
+  }
+</script>
 </body>
 </html>
