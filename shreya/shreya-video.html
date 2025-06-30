@@ -14,54 +14,38 @@
       overflow: hidden;
       position: relative;
     }
-
     .emoji-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       overflow: hidden;
       z-index: 0;
       pointer-events: none;
     }
-
     .emoji {
       position: absolute;
       font-size: 30px;
       animation: floatUp linear infinite;
       opacity: 0.7;
     }
-
     @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
-
     .popup {
       position: fixed;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       background: white;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       z-index: 10000;
       text-align: center;
       font-size: 1.5rem;
       display: none;
     }
-
     .popup button {
       margin-top: 20px;
       background: #d63384;
@@ -73,33 +57,30 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
-    .popup button:hover {
-      background: #ad1a65;
-    }
-
+    .popup button:hover { background: #ad1a65; }
     .video-container {
       display: none;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      width: 100vw;
+      height: 100vh; width: 100vw;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       z-index: 9999;
       background-color: rgba(0,0,0,0.9);
       flex-direction: column;
     }
-
-    video {
-      width: 90vw;
-      max-width: 1080px;
-      height: auto;
-      border-radius: 20px;
-      outline: none;
+    .fixed-video-frame {
+      width: 478px;
+      height: 850px;
+      position: relative;
+      overflow: hidden;
     }
-
+    .fixed-video-frame video {
+      width: 478px !important;
+      height: 850px !important;
+      object-fit: contain;
+      border-radius: 20px;
+    }
     .download {
       position: absolute;
       bottom: 40px;
@@ -112,7 +93,6 @@
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-
     #messageBtn {
       display: none;
       position: fixed;
@@ -120,7 +100,6 @@
       left: 30px;
       z-index: 9999;
     }
-
     #messageBtn button {
       padding: 12px 20px;
       font-size: 1rem;
@@ -136,47 +115,23 @@
 <body>
 
   <div class="emoji-bg">
-    <!-- Floating emojis -->
-    <div class="emoji" style="left: 5%; animation-duration: 12s;">🎈</div>
-    <div class="emoji" style="left: 15%; animation-duration: 10s;">💋</div>
-    <div class="emoji" style="left: 25%; animation-duration: 14s;">🫶🏻</div>
-    <div class="emoji" style="left: 35%; animation-duration: 9s;">🎊</div>
-    <div class="emoji" style="left: 45%; animation-duration: 11s;">🥳</div>
-    <div class="emoji" style="left: 55%; animation-duration: 13s;">🌸</div>
-    <div class="emoji" style="left: 65%; animation-duration: 12s;">🌷</div>
-    <div class="emoji" style="left: 75%; animation-duration: 10s;">✨</div>
-    <div class="emoji" style="left: 85%; animation-duration: 15s;">🥂</div>
-    <div class="emoji" style="left: 95%; animation-duration: 14s;">🍰</div>
-    <div class="emoji" style="left: 20%; animation-duration: 13s;">🍨</div>
-    <div class="emoji" style="left: 30%; animation-duration: 11s;">🍫</div>
-    <div class="emoji" style="left: 40%; animation-duration: 16s;">🎀</div>
-    <div class="emoji" style="left: 60%; animation-duration: 10s;">🎁</div>
-    <div class="emoji" style="left: 80%; animation-duration: 12s;">🧸</div>
-    <div class="emoji" style="left: 50%; animation-duration: 14s;">💝</div>
-    <div class="emoji" style="left: 70%; animation-duration: 13s;">💖</div>
-    <div class="emoji" style="left: 90%; animation-duration: 12s;">💕</div>
+    <!-- (Your emoji elements here, unchanged) -->
   </div>
 
-  <!-- First Popup -->
   <div class="popup" id="popup">
     <p>A Video Just for You 💝</p>
     <button onclick="showVideo()">Watch Now</button>
   </div>
 
-  <!-- Video Container -->
   <div class="video-container" id="videoContainer">
-    <video id="video" controls>
-      <source src="shreya-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <a id="downloadLink" href="shreya-video.mp4" download>
-      <i class="fa-solid fa-download download"></i>
-    </a>
+    <div class="fixed-video-frame">
+      <video id="video" controls width="478" height="850"></video>
+      <a id="downloadLink"><i class="fa-solid fa-download download"></i></a>
+    </div>
   </div>
 
-  <!-- Message Button -->
   <div id="messageBtn">
-    <a href="../message.html?user=shreya" style="text-decoration: none;">
+    <a href="../message.html?user=shreya">
       <button>💌 Leave a Message for Bipasha</button>
     </a>
   </div>
@@ -187,16 +142,20 @@
     };
 
     function showVideo() {
+      const video = document.getElementById('video');
+      const dl = document.getElementById('downloadLink');
+      video.src = 'shreya-video.mp4';     // replace with your filename
+      dl.href = 'shreya-video.mp4';
+
       document.getElementById('popup').style.display = 'none';
       document.getElementById('videoContainer').style.display = 'flex';
-
-      const video = document.getElementById('video');
       video.play();
 
       video.onended = () => {
+        document.getElementById('videoContainer').style.display = 'none';
         setTimeout(() => {
           document.getElementById('popup').innerHTML = `
-            <p>This wasn’t just a video,<br>it was unforgettable memories with you 💖</p>
+            <p>These all just small surprises for youu..<br>Always lovee youuu 💖</p>
             <button onclick="showMessageBtn()">Thanks💕</button>
           `;
           document.getElementById('popup').style.display = 'block';
