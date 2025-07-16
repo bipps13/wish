@@ -6,6 +6,8 @@ The project is built to offer personalized virtual birthday surprises with inter
 🌐 **Live Site**  
 🔗 [Visit the Live Website](https://bipps13.github.io/wish/)
 
+---
+
 ## 📂 Project Features
 
 - 🎁 Personalized greeting experience with name and date-of-birth validation  
@@ -16,6 +18,8 @@ The project is built to offer personalized virtual birthday surprises with inter
 - 🖼️ Embedded local images and videos  
 - 🧠 JavaScript-powered interactivity and redirections  
 
+---
+
 ## 🛠️ Tech Stack
 
 **Frontend:**
@@ -25,8 +29,12 @@ The project is built to offer personalized virtual birthday surprises with inter
 
 **Hosting:**
 - GitHub Pages
-  
+
+---
+
 ## 📁 Folder Structure
+
+```
 WISH/
 │
 ├── index.html                  # Main entry page with name + DOB
@@ -55,24 +63,33 @@ WISH/
 │   ├── shreya-phots.html
 │   ├── shreya-video.html
 │   └── shreya-video.mp4
+```
 
-🚀 How to View Locally
+---
 
-Clone the repository:
-git clone https://github.com/bipps13/wish.git
+## 🚀 How to View Locally
 
-Open index.html in your browser to begin the birthday surprise experience.
+1. Clone the repository:  
+   `git clone https://github.com/bipps13/wish.git`
 
-💡 About the Project
-WISH is a personal and heartfelt web-based surprise created to celebrate loved ones’ birthdays in a memorable and digital way.
+2. Open `index.html` in your browser to begin the birthday surprise experience.
+
+---
+
+## 💡 About the Project
+
+WISH is a personal and heartfelt web-based surprise created to celebrate loved ones’ birthdays in a memorable and digital way.  
 It includes letters, memories, and videos dedicated to each person, along with musical animations and personalized content — all crafted using simple frontend technologies.
 
-⚠️ Currently, this version is built only for a few special people.
-But I’m actively working on turning this into a complete WISH Web App –
-where anyone can create and customize birthday websites, gift pages, and templates for their favorite people.
+⚠️ Currently, this version is built only for a few special people.  
+But I’m actively working on turning this into a complete WISH Web App –  
+where anyone can create and customize birthday websites, gift pages, and templates for their favorite people.  
 
 Stay tuned for more updates – this is just the beginning! 🎁✨
 
-👩‍💻 Developer
-Bipasha Mondal
+---
+
+## 👩‍💻 Developer
+
+**Bipasha Mondal**  
 💬 Always building something heartfelt and creative with code.
