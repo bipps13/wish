@@ -40,29 +40,29 @@ WISH/
 ├── index.html                  # Main entry page with name + DOB
 ├── message.html                # Wish message page
 │
-├── sanzi/                      # Folder for Sanzi’s surprise pages
-│   ├── san1.img
-│   ├── san2.img
-│   ├── sanzi1.img
-│   ├── sanzi2.img
-│   ├── sanzi3.img
-│   ├── sanzi-letter.html
-│   ├── sanzi-memories.html
-│   ├── sanzi-phots.html
-│   ├── sanzi-video.html
-│   └── sanzi-video.mp4
+├── person1/                      # Folder for Person1’s surprise pages
+│   ├── img1.img
+│   ├── img22.img
+│   ├── I1.img
+│   ├── I2.img
+│   ├── sI3.img
+│   ├── person1-letter.html
+│   ├── person1-memories.html
+│   ├── person1-phots.html
+│   ├── person1-video.html
+│   └── person1-video.mp4
 │
-├── shreya/                     # Folder for Shreya’s surprise pages
-│   ├── M1.img
-│   ├── M2.img
-│   ├── shr.img
-│   ├── shr1.img
-│   ├── shr2.img
-│   ├── shreya-letter.html
-│   ├── shreya-memories.html
-│   ├── shreya-phots.html
-│   ├── shreya-video.html
-│   └── shreya-video.mp4
+├── Person2/                     # Folder for Person2’s surprise pages
+│   ├── img1.img
+│   ├── img2.img
+│   ├── I1.img
+│   ├── I2.img
+│   ├── I3.img
+│   ├── Person2-letter.html
+│   ├── Person2-memories.html
+│   ├── Person2-phots.html
+│   ├── Person2-video.html
+│   └── Person2-video.mp4
 ```
 
 ---
@@ -82,14 +82,14 @@ WISH is a personal and heartfelt web-based surprise created to celebrate loved o
 It includes letters, memories, and videos dedicated to each person, along with musical animations and personalized content — all crafted using simple frontend technologies.
 
 ⚠️ Currently, this version is built only for a few special people.  
-But I’m actively working on turning this into a complete WISH Web App –  
+But I’m actively working on to turning this into a complete WISH Web App –  
 where anyone can create and customize birthday websites, gift pages, and templates for their favorite people.  
 
-Stay tuned for more updates – this is just the beginning! 🎁✨
+Stay tuned for more updates – this is just the beginning! ✨
 
 ---
 
 ## 👩‍💻 Developer
 
 **Bipasha Mondal**  
-💬 Always building something heartfelt and creative with code.
+💬 Always building or creating something with heart — to share love, joy, and messages through simple code.
