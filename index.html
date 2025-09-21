@@ -129,9 +129,14 @@
     "sanzi rangari": {
       dob: "2007-06-30",
       folder: "sanzi"
+    },
+    "riddhi bagade": {
+      dob: "2007-09-19",
+      folder: "riddhi"
     }
   };
- function showWish() {
+
+  function showWish() {
     const name = document.getElementById("name").value.trim().toLowerCase();
     const bday = document.getElementById("birthdate").value;
 
@@ -161,9 +166,11 @@
 
       // Redirect based on user
       if (name === "shreya jibhakate") {
-        window.location.href = `${users[name].folder}/shreya-letter.html`;
+        window.location.href = `${users[name].folder}/Calender.html`;
       } else if (name === "sanzi rangari") {
-        window.location.href = `${users[name].folder}/sanzi-letter.html`;
+        window.location.href = `${users[name].folder}/Calender.html`;
+      } else if (name === "riddhi bagade") {
+        window.location.href = `${users[name].folder}/Calender.html`;
       }
 
     } else {
